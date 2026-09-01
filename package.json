@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/vxllx209/Ponce/issues"
   },
-  "homepage": "https://github.com/vxllx209/Ponce#readme"
+  "homepage": "https://github.com/vxllx209/Ponce#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
 }
