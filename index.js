@@ -37,7 +37,7 @@ app.get('/servicios', (req, res) => {
 
 // Rutas
 app.get('/contacto', (req, res) => {
-    res.render('contacto'); 
+    res.render('contacto', { mensajeExito: null }); 
 });
 
 app.post('/contacto', (req, res) => {
