@@ -11,6 +11,11 @@ const PORT = process.env.PORT || 3000;
 // Configurar ejs
 app.set('view engine', 'ejs');
 
+// MIDDLEWARES
+// Permite leer información de formularios
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 // Configurar estáticos
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'views'));
@@ -33,6 +38,13 @@ app.get('/servicios', (req, res) => {
 // Rutas
 app.get('/contacto', (req, res) => {
     res.render('contacto'); 
+});
+
+app.post('/contacto', (req, res) => {
+    // Aquí puedes manejar los datos del formulario de contacto
+    const { nombre, correo, asunto, mensaje } = req.body;
+    console.log(`Nombre: ${nombre}, Correo: ${correo}, Asunto: ${asunto}, Mensaje: ${mensaje}`);
+    res.render('contacto', { mensajeExito: 'Formulario enviado correctamente' });
 });
 
 // Levantar Servidor
